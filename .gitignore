@@ -1,0 +1,40 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Trained model artifacts (large binaries — track via Git LFS or external storage)
+models/model.safetensors
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Training data (company ticket data — must NOT be committed)
+tickets.csv
+*.csv
+
+# Local database (generated at runtime)
+tickets.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment / secrets
+.env
+.env.*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
