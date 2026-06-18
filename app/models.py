@@ -1,5 +1,3 @@
-"""Database models. A single `tickets` table holds every prediction and any
-admin correction supplied later via /feedback."""
 from datetime import datetime, timezone
 
 from sqlalchemy import Column, DateTime, Float, Integer, String, Text

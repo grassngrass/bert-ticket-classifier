@@ -1,12 +1,3 @@
-"""FastAPI application: ticket routing backend.
-
-Endpoints:
-  POST /train       -> fine-tune BERT on tickets.csv, save to models/
-  POST /predict     -> classify ticket text, persist prediction, return dept + confidence
-  POST /feedback    -> store an admin's corrected department for a prediction
-  GET  /departments -> list known departments
-  GET  /tickets     -> all saved predictions
-"""
 from contextlib import asynccontextmanager
 
 import pandas as pd
