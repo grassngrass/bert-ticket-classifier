@@ -19,6 +19,10 @@ models/model.safetensors
 *.pt
 *.pth
 
+# Model config / label map (derived from company training data — keep private)
+models/config.json
+models/label_map.json
+
 # Training data (company ticket data — must NOT be committed)
 tickets.csv
 *.csv
