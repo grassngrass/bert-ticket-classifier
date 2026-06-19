@@ -15,15 +15,7 @@ function departmentClasses(dep: string): string {
   );
 }
 
-function confidenceTone(confidence: number): string {
-  if (confidence >= 80) return "text-emerald-600";
-  if (confidence >= 60) return "text-amber-600";
-  return "text-rose-600";
-}
-
 export function ResultCard({ result }: { result: PredictResponse }) {
-  const confidence = Math.round(result.confidence * 10) / 10;
-
   return (
     <section
       className="animate-fade-in-up mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
@@ -35,44 +27,17 @@ export function ResultCard({ result }: { result: PredictResponse }) {
           <h2 className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
             Predicted Department
           </h2>
-          <p className="text-xs text-slate-500">
-            Routed automatically by the classification model
-          </p>
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-5 px-6 py-8 sm:flex-row sm:justify-between">
-        <div className="flex flex-col items-center sm:items-start">
-          <span
-            className={`animate-scale-in inline-flex items-center rounded-xl px-6 py-3 text-3xl font-extrabold uppercase tracking-tight ring-1 ${departmentClasses(
-              result.predicted_department
-            )}`}
-          >
-            {result.predicted_department}
-          </span>
-          <span className="mt-2 text-xs text-slate-400">
-            Ticket #{result.id}
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center sm:items-end">
-          <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
-            Confidence
-          </span>
-          <span
-            className={`text-4xl font-bold tabular-nums ${confidenceTone(
-              confidence
-            )}`}
-          >
-            {confidence}%
-          </span>
-          <div className="mt-3 h-2 w-40 overflow-hidden rounded-full bg-slate-100">
-            <div
-              className="h-full rounded-full bg-blue-600 transition-[width] duration-700 ease-out"
-              style={{ width: `${Math.min(confidence, 100)}%` }}
-            />
-          </div>
-        </div>
+      <div className="flex flex-col items-center px-6 py-8">
+        <span
+          className={`animate-scale-in inline-flex items-center rounded-xl px-6 py-3 text-3xl font-extrabold uppercase tracking-tight ring-1 ${departmentClasses(
+            result.predicted_department
+          )}`}
+        >
+          {result.predicted_department}
+        </span>
       </div>
     </section>
   );
